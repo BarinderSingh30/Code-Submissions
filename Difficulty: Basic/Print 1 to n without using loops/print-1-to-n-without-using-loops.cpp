@@ -8,11 +8,19 @@ using namespace std;
 // User function Template for C++
 class Solution {
   public:
+    void rec(int x,int n){
+        if(x>n)
+            return;
+        
+        cout<<x<<" ";
+        rec(x+1,n);
+    }
+    
     void printTillN(int n) {
         // Write Your Code here
-        for(int i=1;i<=n;i++){
-            cout<<i<<" ";
-        }
+        rec(1,n);
+        
+
     }
 };
 
