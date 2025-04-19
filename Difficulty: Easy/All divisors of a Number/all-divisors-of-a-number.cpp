@@ -9,10 +9,26 @@ class Solution {
   public:
     void print_divisors(int n) {
         // Code here.
-        for(int i=1;i<=n;i++){
+        vector<int> ls;
+        
+        for(int i=1;i*i<=n;i++){
+        
             if(n%i==0){
-                cout<<i<<" ";
+                ls.push_back(i);
+                
+                if(n/i!=i){
+                ls.push_back(n/i);
+                }
+            
             }
+            
+            
+        }
+        
+        sort(ls.begin(),ls.end());
+        
+        for(auto it : ls){
+            cout<<it<<" ";
         }
     }
 };
