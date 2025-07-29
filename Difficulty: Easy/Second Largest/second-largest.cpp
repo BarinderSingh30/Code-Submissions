@@ -1,60 +1,23 @@
-//{ Driver Code Starts
-#include <bits/stdc++.h>
-
-using namespace std;
-
-
-// } Driver Code Ends
-
 class Solution {
   public:
     int getSecondLargest(vector<int> &arr) {
         // code here
-        int max1 = arr[0];
+        int largest = 0;
+        int secondlargest = 0;
         
-        for(auto it:arr){
-            if(it>max1){
-                max1 = it;
+        for(auto num : arr){
+            if (num > largest){
+                secondlargest = largest;
+                largest = num;
+            }
+            else if (num > secondlargest && num != largest){
+                secondlargest = num;
             }
         }
         
-        int max2 = -1;
-        
-        for(auto it:arr){
-            if(it>max2 && it!=max1){
-                max2 = it;
-            }
+        if (secondlargest == 0){
+            return -1;
         }
-        
-        
-        return max2;
-        
-        
+        return secondlargest;
     }
 };
-
-
-//{ Driver Code Starts.
-
-int main() {
-    int t;
-    cin >> t;
-    cin.ignore();
-    while (t--) {
-        vector<int> arr;
-        string input;
-        getline(cin, input);
-        stringstream ss(input);
-        int number;
-        while (ss >> number) {
-            arr.push_back(number);
-        }
-        Solution ob;
-        int ans = ob.getSecondLargest(arr);
-        cout << ans << endl;
-        cout << "~" << endl;
-    }
-    return 0;
-}
-
-// } Driver Code Ends
