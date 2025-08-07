@@ -1,32 +1,41 @@
 class Solution {
   public:
-    vector<int> intersection(vector<int> &arr1, vector<int> &arr2) {
+    vector<int> intersection(vector<int> &a, vector<int> &b) {
         // code here
-        int n = arr1.size();
-        int m = arr2.size();
-        
-        int i = 0;
-        int j = 0;
+        int n = a.size();
+        int m = b.size();
         
         vector<int> result;
         
-        while (i<n && j<m){
-            if(arr1[i]<arr2[j]){
-                i++;
-            }
-            else if(arr2[j]<arr1[i]){
-                j++;
-            }
-            
-            else if(arr1[i] == arr2[j]){
-                if(result.size() == 0 || result.back()!=arr1[i]){
-                    result.push_back(arr1[i]);
+        int i =0;
+        int j =0;
+        
+        
+        
+        while(i<n && j<m){
+            if(a[i] == b[j]){
+                if(result.size()==0 || result.back()!=a[i]){
+                    result.push_back(a[i]);
                 }
                 i++;
                 j++;
             }
+            
+            else if(a[i]<b[j]){
+                i++;
+            }
+            else{
+                j++;
+            }
+            
+            
+            
+            
+            
+            
         }
-        
         return result;
+        
+        
     }
 };
