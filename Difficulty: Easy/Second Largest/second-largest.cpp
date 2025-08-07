@@ -2,22 +2,19 @@ class Solution {
   public:
     int getSecondLargest(vector<int> &arr) {
         // code here
-        int largest = 0;
-        int secondlargest = 0;
+        int largest = -1;
+        int secondlargest = -1;
         
-        for(auto num : arr){
-            if (num > largest){
+        for(auto num: arr){
+            if(num>largest){
                 secondlargest = largest;
                 largest = num;
             }
-            else if (num > secondlargest && num != largest){
+            else if(num<largest && num>secondlargest){
                 secondlargest = num;
             }
         }
         
-        if (secondlargest == 0){
-            return -1;
-        }
         return secondlargest;
     }
 };
