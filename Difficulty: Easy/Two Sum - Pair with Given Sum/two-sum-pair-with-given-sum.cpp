@@ -1,20 +1,27 @@
 class Solution {
   public:
     bool twoSum(vector<int>& arr, int target) {
-        // code here
-        unordered_map<int,int> mpp;
         
-        for(int i =0;i<arr.size();i++){
+        sort(arr.begin(),arr.end());
+        
+        int left = 0;
+        int right = arr.size()-1;
+        long long sum = 0;
+        
+        while(left<right){
+            sum = arr[left] + arr[right];
             
-            int x = target - arr[i];
-            
-            if(mpp.find(x)!=mpp.end()){
+            if(sum==target){
                 return true;
             }
+            else if (sum<target){
+                left++;
+            }
+            else{
+                right--;
+            }
             
-            mpp[arr[i]] = i;
         }
-        
         return false;
     }
 };
