@@ -2,14 +2,19 @@ class Solution {
   public:
     int maxSubarraySum(vector<int> &arr) {
         // Code here
-        long long maxsum = INT_MIN;
-        long long sum =0;
+        long long cursum = 0;
+        long long maxsum = LONG_MIN;
+        
         
         for(int i =0;i<arr.size();i++){
-            sum +=arr[i];
-            maxsum = max(sum,maxsum);
-            if(sum<0){
-                sum = 0;
+            cursum+=arr[i];
+            
+            if(cursum>maxsum){
+                maxsum = cursum;
+            }
+            
+            if(cursum<0){
+                cursum = 0;
             }
             
         }
