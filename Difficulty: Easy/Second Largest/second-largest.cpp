@@ -5,14 +5,16 @@ class Solution {
         int largest = -1;
         int secondlargest = -1;
         
-        for(auto num: arr){
+        for(auto num:arr){
             if(num>largest){
                 secondlargest = largest;
                 largest = num;
+                
             }
-            else if(num<largest && num>secondlargest){
+            else if(num!=largest && num>secondlargest){
                 secondlargest = num;
             }
+            
         }
         
         return secondlargest;
