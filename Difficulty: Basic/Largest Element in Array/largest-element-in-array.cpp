@@ -2,14 +2,13 @@ class Solution {
   public:
     int largest(vector<int> &arr) {
         // code here
-        int maxi = arr[0];
+        int maxi = -1;
         
-        for(auto it : arr){
-            if (it>maxi){
-                maxi = it;
+        for(auto num:arr){
+            if(num>maxi){
+                maxi = num;
             }
         }
-        
         return maxi;
     }
 };
