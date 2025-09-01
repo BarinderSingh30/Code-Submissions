@@ -1,33 +1,25 @@
 class Solution {
   public:
-    int longestSubarray(vector<int>& arr, long long k) {
+    int longestSubarray(vector<int>& arr, int k) {
         // code here
-        unordered_map<int,int> presum;
-        long long sum = 0;
         int maxlen = 0;
-        
-        
+        long long sum = 0;
+        unordered_map<long long,int> mpp;
         
         for(int i =0;i<arr.size();i++){
             sum+=arr[i];
-            
-            if(sum ==k){
+            if(sum==k){
                 maxlen = max(maxlen,i+1);
             }
             
             long long rem = sum - k;
-            
-            if(presum.find(rem)!=presum.end()){
-                maxlen = max(maxlen,i-presum[rem]);
+            if(mpp.find(rem)!=mpp.end()){
+                maxlen = max(maxlen,i-mpp[rem]);
             }
             
-            if(presum.find(sum)==presum.end()){
-            presum[sum] = i;
+            if(mpp.find(sum)==mpp.end()){
+                mpp[sum] = i;
             }
-            
-            
-            
-            
         }
         return maxlen;
     }
