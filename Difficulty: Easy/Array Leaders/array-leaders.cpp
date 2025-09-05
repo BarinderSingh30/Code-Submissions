@@ -5,17 +5,19 @@ class Solution {
   public:
     vector<int> leaders(vector<int>& arr) {
         // Code here
-        int max = -1;
-        vector<int> result;
+        vector<int>ans;
         
-        for(int i =arr.size()-1;i>=0;i--){
-            if(arr[i]>=max){
-                max = arr[i];
-                result.push_back(arr[i]);
+        int maxi = -1;
+        int n = arr.size();
+        for(int i = n-1; i>=0;i--){
+            if(arr[i]>=maxi){
+                ans.push_back(arr[i]);
+                maxi = arr[i];
             }
+            
         }
-        reverse(result.begin(),result.end());
+        reverse(ans.begin(),ans.end());
         
-        return result;
+        return ans;
     }
 };
